@@ -52,6 +52,16 @@ export interface LayoutFooter extends Schema.Component {
   };
 }
 
+export interface LayoutNavbar extends Schema.Component {
+  collectionName: 'components_layout_navbars';
+  info: {
+    displayName: 'Navbar';
+  };
+  attributes: {
+    title: Attribute.String;
+  };
+}
+
 export interface MetaMeta extends Schema.Component {
   collectionName: 'components_meta_metas';
   info: {
@@ -71,6 +81,7 @@ declare module '@strapi/types' {
       'components.quote': ComponentsQuote;
       'components.rich-text': ComponentsRichText;
       'layout.footer': LayoutFooter;
+      'layout.navbar': LayoutNavbar;
       'meta.meta': MetaMeta;
     }
   }

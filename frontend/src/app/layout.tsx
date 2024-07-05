@@ -6,32 +6,33 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 async function getGlobal(): Promise<any> {
-  const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-
-  // TODO - create error messages and tests
-  if (!token) throw new Error("The Strapi API Token environment variable is not set.");
-
-  const path = `/global`;
-  const options = { headers: { Authorization: `Bearer ${token}` } };
-
-  const urlParamsObject = {
-    populate: [
-      "metadata",
-    ],
-  };
-  return await fetchAPI(path, urlParamsObject, options);
+  try {
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/global`;
+    const urlParamsObject = {
+      populate: [
+        "metadata",
+      ],
+    };
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    
+    const responseData = await fetchAPI(path, urlParamsObject, options);
+    console.log('getGlobal', responseData);
+    return responseData;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function  generateMetadata(): Promise<Metadata> {
   const meta = await getGlobal();
-
   if (!meta.data) return FALLBACK_SEO;
 
   const { metadata } = meta.data.attributes;
 
   return {
-    title: metadata.metaTitle,
-    description: metadata.metaDescription,
+    title: metadata.title,
+    description: metadata.description,
   };
 }
 
@@ -43,14 +44,16 @@ export default async function RootLayout({
 
   // TODO - funky error page?
   const global = await getGlobal();
-  console.log(global);
+  console.log('global', global);
   // if (!global.data) return null;
 
   return (
     <html lang="pl">
-      <Navbar />
-      <body>{children}</body>
-      <Footer />
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
