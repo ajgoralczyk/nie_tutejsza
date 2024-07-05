@@ -52,6 +52,17 @@ export interface LayoutFooter extends Schema.Component {
   };
 }
 
+export interface MetaMeta extends Schema.Component {
+  collectionName: 'components_meta_metas';
+  info: {
+    displayName: 'Meta';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -60,6 +71,7 @@ declare module '@strapi/types' {
       'components.quote': ComponentsQuote;
       'components.rich-text': ComponentsRichText;
       'layout.footer': LayoutFooter;
+      'meta.meta': MetaMeta;
     }
   }
 }
