@@ -929,6 +929,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   attributes: {
     favicon: Attribute.Media<'images'>;
     metadata: Attribute.Component<'meta.meta'>;
+    navbar: Attribute.Component<'layout.navbar'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

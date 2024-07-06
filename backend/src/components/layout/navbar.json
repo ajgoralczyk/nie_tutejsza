@@ -1,13 +1,26 @@
 {
   "collectionName": "components_layout_navbars",
   "info": {
-    "displayName": "Navbar"
+    "displayName": "Navbar",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
       "required": false
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
     }
   }
 }

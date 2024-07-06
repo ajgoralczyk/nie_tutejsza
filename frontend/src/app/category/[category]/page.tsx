@@ -1,9 +1,9 @@
 import { fetchAPI } from '@/app/utils/fetch-api';
 
 type CategoryProps = {
-    params: {
-        category: string,
-    }
+  params: {
+    category: string,
+  }
 }
 
 async function fetchPostsByCategory(filter: string) {

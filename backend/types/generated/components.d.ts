@@ -56,9 +56,12 @@ export interface LayoutNavbar extends Schema.Component {
   collectionName: 'components_layout_navbars';
   info: {
     displayName: 'Navbar';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
+    logo: Attribute.Media<'images'>;
+    links: Attribute.Component<'components.link', true>;
   };
 }
 

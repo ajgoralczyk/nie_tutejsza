@@ -10,14 +10,18 @@ async function getGlobal(): Promise<any> {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const path = `/global`;
     const urlParamsObject = {
-      populate: [
-        "metadata",
-      ],
+      populate: {
+        metadata: {
+            populate: '*',
+        },
+        navbar: {
+            populate: '*',
+        },
+    },
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
     
     const responseData = await fetchAPI(path, urlParamsObject, options);
-    console.log('getGlobal', responseData);
     return responseData;
   } catch (error) {
     console.error(error);
@@ -25,10 +29,10 @@ async function getGlobal(): Promise<any> {
 }
 
 export async function  generateMetadata(): Promise<Metadata> {
-  const meta = await getGlobal();
-  if (!meta.data) return FALLBACK_SEO;
+  const global = await getGlobal();
+  if (!global.data) return FALLBACK_SEO;
 
-  const { metadata } = meta.data.attributes;
+  const { metadata } = global.data.attributes;
 
   return {
     title: metadata.title,
@@ -44,8 +48,8 @@ export default async function RootLayout({
 
   // TODO - funky error page?
   const global = await getGlobal();
-  console.log('global', global);
   // if (!global.data) return null;
+  const { navbar } = global.data.attributes;
 
   return (
     <html lang="pl">
