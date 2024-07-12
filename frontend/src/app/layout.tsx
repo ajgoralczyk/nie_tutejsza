@@ -49,13 +49,14 @@ export default async function RootLayout({
   // TODO - funky error page?
   const global = await getGlobal();
   // if (!global.data) return null;
-  const { navbar } = global.data.attributes;
+  const { title: navTitle, image: navImage, links: navLinks } = global.data.attributes.navbar;
+  console.log('!!!', global.data.attributes.navbar);
 
   return (
     <html lang="pl">
       <body className="flex flex-col h-screen justify-between bg-background">
         <div className="flex flex-col">
-          <Navbar />
+          <Navbar title={navTitle} image={navImage} links={navLinks} />
           {children}
         </div>
         <Footer />

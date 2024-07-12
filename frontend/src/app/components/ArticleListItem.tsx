@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 type ArticleListItemProps = {
+  href: string,
   title: string,
   description: string,
   image?: string,
@@ -8,10 +9,10 @@ type ArticleListItemProps = {
 }
 
 export default function ArticleListItem(props: ArticleListItemProps ) {
-  const { title, description, image, creationDate} = props; 
+  const { href, title, description, image, creationDate} = props; 
   console.log('ArticleListItem', title, description);
   return (
-    <Link href="#" className="group bg-background2 border-yellow flex flex-row" prefetch={false}>
+    <Link href={`/articles/${href}`} className="group bg-background2 border-yellow flex flex-row" prefetch={false}>
       <div className="w-2/5" >
         <img
           src="/placeholder.svg"
