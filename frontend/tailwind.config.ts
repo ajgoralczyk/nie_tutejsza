@@ -12,8 +12,9 @@ const config: Config = {
         border: 'var(--yellow)',
         background: 'var(--light-yellow)',
         background2: 'var(--white)', // rename
-        primary: 'var(--blue)',
-        secondary: 'var(--red)',
+        primary: 'var(--black)',
+        secondary: 'var(--blue)',
+        yellow: 'var(--yellow)',
         // destructive: {
         //   DEFAULT: 'hsl(var(--destructive))',
         //   foreground: 'hsl(var(--destructive-foreground))'

@@ -54,8 +54,10 @@ export default async function RootLayout({
   return (
     <html lang="pl">
       <body className="flex flex-col h-screen justify-between bg-background">
-        <Navbar />
-        {children}
+        <div className="flex flex-col">
+          <Navbar />
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
