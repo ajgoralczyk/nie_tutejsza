@@ -14,10 +14,11 @@ export interface ComponentsLink extends Schema.Component {
   collectionName: 'components_components_links';
   info: {
     displayName: 'Link';
+    description: '';
   };
   attributes: {
-    url: Attribute.String & Attribute.Required;
     text: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
   };
 }
 

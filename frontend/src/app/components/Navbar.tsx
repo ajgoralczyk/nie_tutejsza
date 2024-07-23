@@ -15,7 +15,7 @@ export default function Navbar(props: NavbarProps) {
   const { title, image, links } = props;
   
   return (
-    <header className="px-4 lg:px-6 h-14 flex items-center bg-background2">
+    <header className="px-4 lg:px-6 h-14 flex items-center bg-background">
       <Link href="/" className="flex items-center justify-center" prefetch={false}>
         {/* image or logo */}
         {title}

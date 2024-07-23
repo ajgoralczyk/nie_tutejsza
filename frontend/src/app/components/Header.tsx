@@ -7,7 +7,7 @@ type HeaderProps = {
 export default function Header(props: HeaderProps) {
   const { description, image, title } = props;
   return (
-    <section className="w-full h-72 relative overflow-hidden">
+    <section className="bg-background w-full h-72 relative overflow-hidden">
       {image ? (
         <img
           src="/placeholder.svg"
