@@ -17,6 +17,9 @@ async function getGlobal(): Promise<any> {
         navbar: {
             populate: '*',
         },
+        footer: {
+          populate: '*',
+      },
     },
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
@@ -50,16 +53,17 @@ export default async function RootLayout({
   const global = await getGlobal();
   // if (!global.data) return null;
   const { title: navTitle, image: navImage, links: navLinks } = global.data.attributes.navbar;
+  const { footer } = global.data.attributes;
   console.log('!!!', global.data.attributes.navbar);
 
   return (
     <html lang="pl">
-      <body className="flex flex-col h-screen justify-between bg-background2">
-        <div className="flex flex-col">
+      <body className=""> {/* flex flex-col h-screen justify-between bg-background2 */}
+        <div className="flex flex-col min-h-screen relative z-10 bg-background2">
           <Navbar title={navTitle} image={navImage} links={navLinks} />
           {children}
         </div>
-        <Footer />
+        <Footer {...footer} />
       </body>
     </html>
   );

@@ -10,6 +10,17 @@ export interface ComponentsCarousel extends Schema.Component {
   };
 }
 
+export interface ComponentsIconLink extends Schema.Component {
+  collectionName: 'components_components_icon_links';
+  info: {
+    displayName: 'IconLink';
+  };
+  attributes: {
+    icon: Attribute.String & Attribute.Required;
+    url: Attribute.String;
+  };
+}
+
 export interface ComponentsLink extends Schema.Component {
   collectionName: 'components_components_links';
   info: {
@@ -47,9 +58,14 @@ export interface LayoutFooter extends Schema.Component {
   collectionName: 'components_layout_footers';
   info: {
     displayName: 'Footer';
+    description: '';
   };
   attributes: {
-    test: Attribute.String;
+    title: Attribute.String;
+    description: Attribute.Text;
+    links: Attribute.Component<'components.link', true>;
+    linksTitle: Attribute.String;
+    iconLinks: Attribute.Component<'components.icon-link', true>;
   };
 }
 
@@ -81,6 +97,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'components.carousel': ComponentsCarousel;
+      'components.icon-link': ComponentsIconLink;
       'components.link': ComponentsLink;
       'components.quote': ComponentsQuote;
       'components.rich-text': ComponentsRichText;

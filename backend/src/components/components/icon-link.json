@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_icon_links",
+  "info": {
+    "displayName": "IconLink"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

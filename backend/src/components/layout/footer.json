@@ -1,12 +1,29 @@
 {
   "collectionName": "components_layout_footers",
   "info": {
-    "displayName": "Footer"
+    "displayName": "Footer",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "test": {
+    "title": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    },
+    "linksTitle": {
+      "type": "string"
+    },
+    "iconLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.icon-link"
     }
   }
 }
