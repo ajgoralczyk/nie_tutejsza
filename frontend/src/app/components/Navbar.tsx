@@ -25,7 +25,7 @@ export default function Navbar(props: NavbarProps) {
   }
   
   return (
-    <header className="px-4 lg:px-6 h-14 flex items-center bg-background">
+    <header className="px-4 lg:px-6 h-14 flex items-center bg-background sticky top-0 left-0 right-0 z-20">
       <Link href="/" className="flex items-center justify-center" prefetch={false}>
         {/* image or logo */}
         {title}
@@ -43,7 +43,7 @@ export default function Navbar(props: NavbarProps) {
         <RxHamburgerMenu onClick={toggleNavigation}/>
       </div>
 
-      <div className={`flex sm:hidden flex-col w-3/4 top-0 right-0 fixed p-4 gap-4 bg-background z-10 h-dvh t-0 duration-200 transform ${open ? 'translate-x-full' : ''}`}>
+      <div className={`flex sm:hidden flex-col w-3/4 top-0 right-0 fixed p-4 gap-4 bg-background z-20 h-dvh t-0 duration-200 transform ${open ? '' : 'translate-x-full'}`}>
         <div className="text-lg flex justify-end">
           <IoClose onClick={toggleNavigation}/>
         </div>

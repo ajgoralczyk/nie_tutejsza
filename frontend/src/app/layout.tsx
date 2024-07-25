@@ -61,7 +61,9 @@ export default async function RootLayout({
       <body className=""> {/* flex flex-col h-screen justify-between bg-background2 */}
         <div className="flex flex-col min-h-screen relative z-10 bg-background2">
           <Navbar title={navTitle} image={navImage} links={navLinks} />
-          {children}
+          <div className="z-0">
+            {children}
+          </div>
         </div>
         <Footer {...footer} />
       </body>
