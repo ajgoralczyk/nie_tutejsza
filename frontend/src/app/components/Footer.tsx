@@ -21,7 +21,7 @@ export default function Footer(props: FooterProps) {
     <footer className="bg-background py-4 text-primary sticky right-0 bottom-0 left-0 w-full box-border">
       <div className="container mx-auto grid gap-4 sm:gap-8 sm:grid-cols-2 px-4 pb-4 max-w-screen-lg">
         <div className="flex flex-col items-start gap-4">
-          <Link url="/">
+          <Link url="/" className="text-sm hover:text-foreground">
             <h3 className="text-lg font-semibold">{title}</h3>
           </Link>
           <p className="text-sm">

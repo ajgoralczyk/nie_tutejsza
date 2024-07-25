@@ -1,4 +1,9 @@
+"use client"
+
 import Link from "next/link"
+import { useState } from "react";
+import { IoClose } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 type LinkType = {
   url: string,
@@ -13,6 +18,11 @@ type NavbarProps = {
 
 export default function Navbar(props: NavbarProps) {
   const { title, image, links } = props;
+  const [open, setOpen] = useState(false);
+
+  function toggleNavigation() {
+    setOpen(open => !open);
+  }
   
   return (
     <header className="px-4 lg:px-6 h-14 flex items-center bg-background">
@@ -20,13 +30,29 @@ export default function Navbar(props: NavbarProps) {
         {/* image or logo */}
         {title}
       </Link>
-      <nav className="ml-auto flex gap-4 sm:gap-6">
+
+      <nav className="hidden sm:flex ml-auto gap-4">
         {links && links.map(link => (
           <Link href={link.url} key={link.url} className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             {link.text}
           </Link>
         ))}
-    </nav>
-  </header>
+      </nav>
+
+      <div className="flex sm:hidden ml-auto w-100">
+        <RxHamburgerMenu onClick={toggleNavigation}/>
+      </div>
+
+      <div className={`flex sm:hidden flex-col w-3/4 top-0 right-0 fixed p-4 gap-4 bg-background z-10 h-dvh t-0 duration-200 transform ${open ? 'translate-x-full' : ''}`}>
+        <div className="text-lg flex justify-end">
+          <IoClose onClick={toggleNavigation}/>
+        </div>
+        {links && links.map(link => (
+          <Link href={link.url} onClick={toggleNavigation} key={link.url} className="text-lg" prefetch={false}>
+            {link.text}
+          </Link>
+        ))}
+      </div>
+    </header>
   );
 }

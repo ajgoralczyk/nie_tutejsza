@@ -3,13 +3,14 @@ import { default as NextLink } from "next/link";
 
 export type LinkProps = {
   children?: React.ReactNode | string,
+  className?: string,
   url: string,
 }
 
 export default function Link(props: LinkProps) {
-  const { children, url } = props;
+  const { children, className, url } = props;
   return (
-    <NextLink href={url} className="text-sm hover:text-foreground" prefetch={false}>
+    <NextLink href={url} className={className} prefetch={false}>
       {children}
     </NextLink>
   );
