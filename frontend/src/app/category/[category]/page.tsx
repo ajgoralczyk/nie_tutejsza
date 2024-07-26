@@ -54,7 +54,7 @@ export default async function CategoryRoute({ params }: CategoryProps) {
   const category = await fetchCategory(filter);
 
   const { name, description, cover } = category[0].attributes;
-  console.log('posts', posts);
+  console.log('cover', cover);
 
   // if (data.length === 0) return <div>Not Posts In this category</div>;
 
@@ -62,7 +62,7 @@ export default async function CategoryRoute({ params }: CategoryProps) {
 
   return (
     <>
-      <Header title={name} description={description} />
+      <Header title={name} description={description} image={cover} />
       <section>
         {/* <div>{JSON.stringify(posts)}</div> */}
         <div className="mx-auto grid items-start gap-8 p-6 md:p-8 lg:p-10">

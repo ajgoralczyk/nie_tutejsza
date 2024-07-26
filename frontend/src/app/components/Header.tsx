@@ -1,21 +1,16 @@
+import Image, { ImageData } from "./Image";
 type HeaderProps = {
   description?: string,
-  image?: string,
+  image?: ImageData,
   title: string,
 }
 
 export default function Header(props: HeaderProps) {
   const { description, image, title } = props;
   return (
-    <section className="bg-background w-full h-72 relative overflow-hidden">
+    <section className="bg-background w-full h-96 relative overflow-hidden">
       {image ? (
-        <img
-          src="/placeholder.svg"
-          width={1200}
-          height={600}
-          alt="Featured Image"
-          className="aspect-[2/1] object-cover"
-        />
+        <Image file={image} className="aspect-[2/1] object-cover"/>
       ) : (
         <div className="h-full">
           <p className="text-[400px] text-yellow opacity-30 h-full -translate-y-1/2">{title}</p>
