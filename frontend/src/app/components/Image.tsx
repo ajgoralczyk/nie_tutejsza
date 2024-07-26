@@ -21,7 +21,7 @@ export default function Image(props: ImageProps ) {
   const imgUrl = getStrapiMedia(props.file.data.attributes.url);
 
   return (
-    <div className={props.className}> {/* flex items-center justify-center mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 */}
+    <div className={props.className}>
       <NextImage 
         src={imgUrl || ""}
         alt={props.file.data.attributes.alternativeText || "none provided"}

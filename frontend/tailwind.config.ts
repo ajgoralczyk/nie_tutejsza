@@ -13,6 +13,7 @@ const config: Config = {
         primary: 'var(--black)',
         secondary: 'var(--blue)',
         yellow: 'var(--yellow)',
+        lightGrey: 'var(--light-grey)',
         // destructive: {
         //   DEFAULT: 'hsl(var(--destructive))',
         //   foreground: 'hsl(var(--destructive-foreground))'

@@ -19,6 +19,7 @@ async function fetchPostsByCategory(filter: string) {
           slug: filter,
         },
       },
+      populate: '*'
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const response = await fetchAPI(path, urlParamsObject, options);
@@ -54,7 +55,7 @@ export default async function CategoryRoute({ params }: CategoryProps) {
   const category = await fetchCategory(filter);
 
   const { name, description, cover } = category[0].attributes;
-  console.log('cover', cover);
+  console.log('posts', posts);
 
   // if (data.length === 0) return <div>Not Posts In this category</div>;
 
@@ -66,7 +67,16 @@ export default async function CategoryRoute({ params }: CategoryProps) {
       <section>
         {/* <div>{JSON.stringify(posts)}</div> */}
         <div className="mx-auto grid items-start gap-8 p-6 md:p-8 lg:p-10">
-          {posts.map(post => <ArticleListItem href={post.attributes.slug} title={post.attributes.title} description={post.attributes.description}/>)}
+          {posts.map(post => 
+            <ArticleListItem 
+              href={post.attributes.slug}
+              image={post.attributes.cover}
+              title={post.attributes.title}
+              description={post.attributes.description}
+              publishedAt={post.attributes.publishedAt}
+              categories={post.attributes.categories}
+            />
+          )}
         </div>
       </section>
     </>
