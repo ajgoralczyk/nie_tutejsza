@@ -20,7 +20,7 @@ export default function Header(props: HeaderProps) {
         </div>
       )}
       {/* TODO check calculation, something is working incorrectly */}
-      <div className="bg-background2 w-[calc(50%+504px)] lg:pl-[calc(50%-512px)] lg:absolute lg:bottom-0 lg:left-0 lg:right-0 lg:rounded-tr-xl">
+      <div className="bg-background2 lg:w-[calc(50%+504px)] lg:pl-[calc(50%-512px)] lg:absolute lg:bottom-0 lg:left-0 lg:right-0 lg:rounded-tr-xl">
         <div className="p-4 lg:p-6">
           <h1 className="font-bold text-secondary text-3xl sm:text-4xl">
             {title}
