@@ -18,15 +18,15 @@ export default function ArticleListItem(props: ArticleListItemProps ) {
   console.log('ArticleListItem', props.categories.data);
 
   return (
-    <div className="bg-background2 border border-lightGrey flex flex-row overflow-hidden rounded-xl">
-      <div className="w-2/5">
+    <div className="bg-background2 border border-lightGrey flex flex-col sm:flex-row overflow-hidden rounded-xl">
+      <div className="sm:w-2/5">
         {image && image.data ?
           <Image file={image} className="aspect-[3/2] object-cover"/>
           : null 
         }
         {/* TODO alternative when the photo is missing? */}
       </div>
-      <div className="w-3/5 flex flex-col">
+      <div className="sm:w-3/5 flex flex-col">
         <div className="text-xs flex flex-none gap-3 px-6 lg:px-8 pt-6 lg:pt-8 pb-2">
           {props.categories.data.map(category => <Link url={`/category/${category.attributes.slug}`} className="hover:underline">{category.attributes.name}</Link>)}
         </div>
