@@ -64,20 +64,18 @@ export default async function CategoryRoute({ params }: CategoryProps) {
   return (
     <>
       <Header title={name} description={description} image={cover} />
-      <section>
+      <section className="mx-auto grid items-start gap-6 p-4 lg:p-6 max-w-screen-lg">
         {/* <div>{JSON.stringify(posts)}</div> */}
-        <div className="mx-auto grid items-start gap-8 p-6 md:p-8 lg:p-10">
-          {posts.map(post => 
-            <ArticleListItem 
-              href={post.attributes.slug}
-              image={post.attributes.cover}
-              title={post.attributes.title}
-              description={post.attributes.description}
-              publishedAt={post.attributes.publishedAt}
-              categories={post.attributes.categories}
-            />
-          )}
-        </div>
+        {posts.map(post => 
+          <ArticleListItem 
+            href={post.attributes.slug}
+            image={post.attributes.cover}
+            title={post.attributes.title}
+            description={post.attributes.description}
+            publishedAt={post.attributes.publishedAt}
+            categories={post.attributes.categories}
+          />
+        )}
       </section>
     </>
   );
