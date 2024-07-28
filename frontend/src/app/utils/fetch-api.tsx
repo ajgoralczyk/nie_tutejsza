@@ -15,12 +15,16 @@ export async function fetchAPI(
       },
       ...options,
     };
+    const defaultPagination = {
+      'pagination[pageSize]': 10,
+    };
 
     // Build request URL
-    const queryString = qs.stringify(urlParamsObject);
+    const queryString = qs.stringify({...defaultPagination, ...urlParamsObject});
     const requestUrl = `${getStrapiURL(
       `/api${path}${queryString ? `?${queryString}` : ""}`
     )}`;
+    console.log('urlParamsObject, queryString', urlParamsObject, queryString);
 
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);

@@ -54,7 +54,6 @@ export default async function RootLayout({
   // if (!global.data) return null;
   const { title: navTitle, image: navImage, links: navLinks } = global.data.attributes.navbar;
   const { footer } = global.data.attributes;
-  console.log('!!!', global.data.attributes.navbar);
 
   return (
     <html lang="pl">

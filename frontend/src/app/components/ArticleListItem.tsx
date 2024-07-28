@@ -27,7 +27,7 @@ export default function ArticleListItem(props: ArticleListItemProps ) {
       </div>
       <div className="sm:w-3/5 flex flex-col">
         <div className="text-xs flex flex-none gap-3 px-6 lg:px-8 pt-6 lg:pt-8 pb-2">
-          {props.categories.data.map(category => <Link url={`/category/${category.attributes.slug}`} className="hover:underline">{category.attributes.name}</Link>)}
+          {props.categories.data.map(category => <Link url={`/category/${category.attributes.slug}`} className="hover:underline" key={category.attributes.slug}>{category.attributes.name}</Link>)}
         </div>
         <Link className="group flex-auto px-6 lg:px-8 pb-6 lg:pb-8 pt-0" url={`/articles/${href}`}>
           <h3 className="text-lg font-bold group-hover:underline">{title}</h3>

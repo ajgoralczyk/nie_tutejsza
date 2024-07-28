@@ -7,7 +7,6 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   const { description, image, title } = props;
-  console.log('header image', image);
 
   return (
     <section className="bg-background w-full relative overflow-hidden">
