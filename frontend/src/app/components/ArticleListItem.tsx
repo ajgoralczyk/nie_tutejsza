@@ -14,8 +14,7 @@ export default function ArticleListItem(props: ArticleListItemProps ) {
   const { href, title, description, image} = props; 
   const date = new Date(props.publishedAt).toLocaleDateString('pl-PL');
   // TODO filter out current category
-  // TODO make it a link 
-  console.log('ArticleListItem', props.categories.data);
+  // TODO make it all a link 
 
   return (
     <div className="bg-background2 border border-lightGrey flex flex-col sm:flex-row overflow-hidden rounded-xl">
