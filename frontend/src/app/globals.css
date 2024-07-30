@@ -24,3 +24,15 @@
     text-wrap: balance; /* 04.07.24 - 74.5% */
   }
 }
+
+.font-main {
+  font-family: var(--font-libre-franklin);
+}
+
+.font-special {
+  font-family: var(--font-caveat);
+}
+
+.font-header {
+  font-family: var(--font-sorts-mill-goudy);
+}

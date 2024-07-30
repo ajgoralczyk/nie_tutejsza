@@ -1,9 +1,30 @@
 import type { Metadata } from "next";
 import { fetchAPI } from "./utils/fetch-api";
-import "./globals.css";
 import { FALLBACK_SEO } from "./utils/constants";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
+import "./globals.css";
+import { Libre_Franklin, Caveat, Sorts_Mill_Goudy } from 'next/font/google';
+
+// main font
+export const libreFranklin = Libre_Franklin({
+  subsets: ['latin'],
+  variable: "--font-libre-franklin",
+});
+
+// headers
+export const sortsMillGoudy = Sorts_Mill_Goudy({
+  weight: "400",
+  subsets: ['latin'],
+  variable: "--font-sorts-mill-goudy",
+});
+
+// special texts, quotes, etc.
+export const caveat = Caveat({
+  subsets: ['latin'],
+  variable: "--font-caveat",
+});
 
 async function getGlobal(): Promise<any> {
   try {
@@ -56,8 +77,8 @@ export default async function RootLayout({
   const { footer } = global.data.attributes;
 
   return (
-    <html lang="pl">
-      <body className=""> {/* flex flex-col h-screen justify-between bg-background2 */}
+    <html lang="pl" className={`${libreFranklin.variable} ${sortsMillGoudy.variable} ${caveat.variable}`}>
+      <body> {/* flex flex-col h-screen justify-between bg-background2 */}
         <div className="flex flex-col min-h-screen relative z-10 bg-background2">
           <Navbar title={navTitle} image={navImage} links={navLinks} />
           <div className="z-0">
