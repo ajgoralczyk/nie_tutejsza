@@ -12,8 +12,6 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   const { description, image, title, categories, publishedAt, updatedAt } = props;
-  console.log('categories', categories);
-  console.log('two dates', publishedAt, updatedAt);
 
   return (
     <section className="bg-background w-full relative overflow-hidden">
@@ -33,7 +31,7 @@ export default function Header(props: HeaderProps) {
               {categories.data.map(category => <Link url={`/category/${category.attributes.slug}`} className="hover:underline" key={category.attributes.slug}>{category.attributes.name}</Link>)}
             </div>
           )}
-          <h1 className="font-bold text-secondary text-3xl sm:text-4xl">
+          <h1 className="font-bold text-secondary text-3xl sm:text-4xl font-header">
             {title}
           </h1>
           {publishedAt && (

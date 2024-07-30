@@ -64,7 +64,6 @@ export default async function CategoryRoute({ params }: CategoryProps) {
   const filter = params.category;
   const posts = await fetchPostsByCategory(filter);
   const category = await fetchCategory(filter);
-  console.log('posts', posts);
 
   // TODO do I need just one api call? update populate
 

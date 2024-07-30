@@ -1,4 +1,6 @@
+import Author from "@/app/components/Author";
 import Header from "@/app/components/Header";
+import RichText from "@/app/components/RichText";
 import { fetchAPI } from '@/app/utils/fetch-api';
 
 type ArticleProps = {
@@ -24,15 +26,25 @@ async function fetchPost(slug: string) {
   }
 }
 
+function renderPost(section: any, index: number) {
+  switch (section.__component) {
+    case 'components.rich-text':
+      return <RichText key={index} data={section} />
+    default:
+      return null;
+  }
+}
+
 export default async function ArticleRoute({ params }: ArticleProps) {
   const { data } = await fetchPost(params.slug);
   const { cover, title, updatedAt, publishedAt, categories, blocks, authors } = data[0].attributes;
-  console.log('data', cover, title, updatedAt, publishedAt, categories, blocks, authors);
 
   return (
     <div>
       {/* {JSON.stringify(data)} */}
       <Header title={title} image={cover} categories={categories} updatedAt={updatedAt} publishedAt={publishedAt} />
+      {blocks && blocks.map((block, index) => renderPost(block, index))}
+      <Author authors={authors} />
     </div>
   );
 }
