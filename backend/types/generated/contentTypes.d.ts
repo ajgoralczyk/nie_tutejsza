@@ -860,6 +860,7 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
       'manyToMany',
       'api::article.article'
     >;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

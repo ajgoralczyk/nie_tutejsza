@@ -32,6 +32,9 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "inversedBy": "authors"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
