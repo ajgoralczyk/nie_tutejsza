@@ -2,7 +2,7 @@ type AuthorProps = {}
 
 export default function Author({ authors }: AuthorProps) {
   const { name, photo, email, description } = authors.data[0].attributes;
-  console.log('Author:', name, photo, email, description);
+  // console.log('Author:', name, photo, email, description);
 
   return (
     <section className="mx-auto px-4 lg:px-6 pb-4 lg:pb-6 max-w-screen-lg">

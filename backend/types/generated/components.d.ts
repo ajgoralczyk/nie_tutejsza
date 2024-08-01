@@ -54,6 +54,18 @@ export interface ComponentsRichText extends Schema.Component {
   };
 }
 
+export interface ComponentsTextWithImage extends Schema.Component {
+  collectionName: 'components_components_text_with_images';
+  info: {
+    displayName: 'TextWithImage';
+  };
+  attributes: {
+    text: Attribute.RichText;
+    image: Attribute.Media<'images'>;
+    type: Attribute.Enumeration<['ImageLeft', 'ImageRight']>;
+  };
+}
+
 export interface LayoutFooter extends Schema.Component {
   collectionName: 'components_layout_footers';
   info: {
@@ -101,6 +113,7 @@ declare module '@strapi/types' {
       'components.link': ComponentsLink;
       'components.quote': ComponentsQuote;
       'components.rich-text': ComponentsRichText;
+      'components.text-with-image': ComponentsTextWithImage;
       'layout.footer': LayoutFooter;
       'layout.navbar': LayoutNavbar;
       'meta.meta': MetaMeta;

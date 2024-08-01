@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_components_text_with_images",
+  "info": {
+    "displayName": "TextWithImage"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ImageLeft",
+        "ImageRight"
+      ]
+    }
+  }
+}

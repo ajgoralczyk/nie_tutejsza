@@ -29,7 +29,7 @@ async function fetchPost(slug: string) {
 function renderPost(section: any, index: number) {
   switch (section.__component) {
     case 'components.rich-text':
-      return <RichText key={index} data={section} />
+      return <RichText key={index} data={section.body} />
     default:
       return null;
   }

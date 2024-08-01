@@ -4,10 +4,11 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page"
+    "displayName": "Page",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,6 +17,11 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-with-image"
     }
   }
 }
