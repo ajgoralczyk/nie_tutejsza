@@ -1,15 +1,14 @@
-'use client'
+"use client";
 
+import { fetchAPI } from "@/app/utils/fetch-api";
+import { useSearchParams } from "next/navigation";
 import ArticleListItem from "@/app/components/ArticleListItem";
 import Header from "@/app/components/Header";
 import Pagination from "@/app/components/Pagination";
-import { fetchAPI } from "@/app/utils/fetch-api";
-import { useSearchParams } from "next/navigation";
 
 type CategoryProps = {
   params: {
     category: string;
-    page?: number;
   };
 };
 
@@ -27,7 +26,7 @@ async function fetchPostsByCategory(filter: string) {
           slug: filter,
         },
       },
-      populate: '*',
+      populate: "*",
       pagination: {
         page: currentPage,
       },
@@ -49,7 +48,7 @@ async function fetchCategory(filter: string) {
       filters: {
         slug: filter,
       },
-      populate: '*'
+      populate: "*",
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const response = await fetchAPI(path, urlParamsObject, options);
@@ -76,19 +75,17 @@ export default async function CategoryRoute({ params }: CategoryProps) {
   return (
     <>
       <Header title={name} description={description} image={cover} />
-      <section className="mx-auto grid items-start gap-6 p-4 lg:p-6 max-w-screen-lg">
-        {posts?.data.map(post => 
-          <ArticleListItem 
-            href={post.attributes.slug}
-            image={post.attributes.cover}
-            title={post.attributes.title}
-            description={post.attributes.description}
-            publishedAt={post.attributes.publishedAt}
-            categories={post.attributes.categories}
-            key={post.id}
-          />
-        )}
-      </section>
+      {posts?.data.map((post) => (
+        <ArticleListItem
+          href={post.attributes.slug}
+          image={post.attributes.cover}
+          title={post.attributes.title}
+          description={post.attributes.description}
+          publishedAt={post.attributes.publishedAt}
+          categories={post.attributes.categories}
+          key={post.id}
+        />
+      ))}
       <Pagination pageCount={posts.meta.pagination.pageCount} />
     </>
   );

@@ -1,38 +1,55 @@
-import { fetchAPI } from '@/app/utils/fetch-api';
+"use client";
+
+import { fetchAPI } from "@/app/utils/fetch-api";
+import { useSearchParams } from "next/navigation";
+import ArticleListItem from "../components/ArticleListItem";
+import Pagination from "../components/Pagination";
 
 async function fetchPosts() {
-    try {
-        const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-        const path = `/articles`;
-        const urlParamsObject = {
-            sort: { createdAt: 'desc' },
-            populate: {
-                cover: { fields: ['url'] },
-            },
-        };
-        const options = { headers: { Authorization: `Bearer ${token}` } };
-        const responseData = await fetchAPI(path, urlParamsObject, options);
-        return responseData;
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const searchParams = useSearchParams();
+    const currentPage = Number(searchParams.get("page")) || 1;
+
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/articles`;
+    const urlParamsObject = {
+      sort: { createdAt: "desc" },
+      populate: "*",
+      pagination: {
+        page: currentPage,
+      },
+    };
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const response = await fetchAPI(path, urlParamsObject, options);
+    console.log("response", response);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export default async function BlogRoute() {
-    const { data } = await fetchPosts();
+  const posts = await fetchPosts();
+  console.log("posts", posts);
 
-    //TODO: CREATE A COMPONENT FOR THIS
-    if (data?.length === 0) return <div>Not Posts Yes</div>;
+  //TODO: CREATE A COMPONENT FOR THIS
+  if (posts?.length === 0) return <div>Not Posts Yes</div>;
 
-    // const { name, description } = data[0]?.attributes.category.data.attributes;
-
-    return (
-        <div>
-            {JSON.stringify(data)}
-        </div>
-    );
-}
-
-export async function generateStaticParams() {
-    return [];
+  return (
+    <>
+      {/* TODO add header with image & "Wszystkie wpisy" */}
+      {posts?.data.map((post) => (
+        <ArticleListItem
+          href={post.attributes.slug}
+          image={post.attributes.cover}
+          title={post.attributes.title}
+          description={post.attributes.description}
+          publishedAt={post.attributes.publishedAt}
+          categories={post.attributes.categories}
+          key={post.id}
+        />
+      ))}
+      <Pagination pageCount={posts.meta.pagination.pageCount} />
+    </>
+  );
 }
