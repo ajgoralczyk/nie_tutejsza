@@ -57,3 +57,18 @@ section h4 {
 section p {
   padding-bottom: 0.5rem;
 }
+
+
+.test {
+  background-color: azure;
+  
+}
+
+.test path:hover {
+  fill: red;
+}
+
+
+path:focus {
+  outline: 0;
+}
