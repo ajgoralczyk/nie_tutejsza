@@ -8,26 +8,30 @@ export enum TextWithImageType {
 }
 
 export type TextWithImageProps = {
-  image: any,
-  type: TextWithImageType,
-  content: any,
+  image: any;
+  type: TextWithImageType;
+  content: any;
 };
 
-export default function TextWithImage({image, type, content}: TextWithImageProps) {
-
-  const ImageWrapper = (
-    <div className="w-1/2">
-      <Image className="" file={image} />
-    </div>
-  );
-
+export default function TextWithImage({
+  image,
+  type,
+  content,
+}: TextWithImageProps) {
   return (
-    <section className={`p-4 lg:p-6 max-w-screen-lg mx-auto flex flex-row gap-8 lg:gap-12`}>
-      {type === TextWithImageType.ImageLeft && ImageWrapper}
-      <div className="w-1/2 ">
+    <section
+      className={`p-4 lg:p-6 max-w-screen-lg mx-auto flex flex-col gap-8 lg:gap-12 ${
+        type === TextWithImageType.ImageLeft
+          ? "md:flex-row-reverse"
+          : "md:flex-row"
+      }`}
+    >
+      <div className="md:w-1/2">
         <Markdown children={content} remarkPlugins={[remarkGfm]} />
       </div>
-      {type === TextWithImageType.ImageRight && ImageWrapper}
+      <div className="md:w-1/2">
+        <Image className="" file={image} />
+      </div>
     </section>
   );
 }
