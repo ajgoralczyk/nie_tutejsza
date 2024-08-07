@@ -23,26 +23,24 @@ export default async function Destinations() {
   console.log("categories", categories);
 
   return (
-    <main className="">
-      <div className="p-4 lg:p-6 max-w-screen-lg mx-auto">
-        <Map
-          onSelect={(value) => {
-            console.log("clicked", value);
-          }}
-          selectableRegions={["CA", "PL", "US"]}
-          type={MapTypes.World}
-          id="worldMap"
-        />
-        Second map
-        <Map
-          onSelect={(value) => {
-            console.log("clicked", value);
-          }}
-          selectableRegions={["CA", "NY", "NJ"]}
-          type={MapTypes.Usa}
-          id="usaMap"
-        />
-      </div>
-    </main>
+    <section className="p-4 lg:p-6 max-w-screen-lg mx-auto">
+      <Map
+        onSelect={(value) => {
+          console.log("clicked", value);
+        }}
+        selectableRegions={["CA", "PL", "US"]}
+        type={MapTypes.World}
+        id="worldMap"
+      />
+      Second map
+      <Map
+        onSelect={(value) => {
+          console.log("clicked", value);
+        }}
+        selectableRegions={["CA", "NY", "NJ"]}
+        type={MapTypes.Usa}
+        id="usaMap"
+      />
+    </section>
   );
 }
