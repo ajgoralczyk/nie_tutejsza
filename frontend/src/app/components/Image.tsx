@@ -10,19 +10,20 @@ export type ImageData = {
       alternativeText: string;
     };
   };
-}
+};
 
 type ImageProps = {
-  file: ImageData,
-  className: string,
-}
+  file: ImageData;
+  className: string;
+};
 
-export default function Image(props: ImageProps ) {
+export default function Image(props: ImageProps) {
+  console.log("Image", props.file);
   const imgUrl = getStrapiMedia(props.file.data.attributes.url);
 
   return (
     <div className={props.className}>
-      <NextImage 
+      <NextImage
         src={imgUrl || ""}
         alt={props.file.data.attributes.alternativeText || "none provided"}
         className="object-cover w-full h-full overflow-hidden"

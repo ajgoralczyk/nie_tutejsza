@@ -1,33 +1,34 @@
-import Markdown from "react-markdown";
+import Contact from "./Contact";
 import Image from "./Image";
-import remarkGfm from "remark-gfm";
 
-export enum TextWithImageType {
+export enum ContactWithImageType {
   ImageLeft,
   ImageRight,
 }
 
-export type TextWithImageProps = {
+export type ContactWithImageProps = {
   image: any;
-  type: TextWithImageType;
-  content: any;
+  description: string;
+  type: ContactWithImageType;
 };
 
-export default function TextWithImage({
+export default function ContactWithImage({
   image,
+  description,
   type,
-  content,
-}: TextWithImageProps) {
+}: ContactWithImageProps) {
+  console.log("image", image);
+
   return (
     <section
       className={`p-4 lg:p-6 max-w-screen-lg mx-auto flex flex-col gap-8 lg:gap-12 ${
-        type === TextWithImageType.ImageLeft
+        type === ContactWithImageType.ImageLeft
           ? "md:flex-row-reverse"
           : "md:flex-row"
       }`}
     >
       <div className="md:w-1/2 my-auto">
-        <Markdown children={content} remarkPlugins={[remarkGfm]} />
+        <Contact description={description} />
       </div>
       <div className="md:w-1/2 my-auto">
         <Image className="" file={image} />
