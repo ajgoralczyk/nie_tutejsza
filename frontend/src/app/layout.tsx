@@ -85,8 +85,6 @@ export default async function RootLayout({
       className={`${libreFranklin.variable} ${sortsMillGoudy.variable} ${caveat.variable}`}
     >
       <body>
-        {" "}
-        {/* flex flex-col h-screen justify-between bg-background2 */}
         <div className="flex flex-col min-h-screen relative z-10 bg-background2">
           <Navbar title={navTitle} image={navImage} links={navLinks} />
           <div className="z-0 my-auto">{children}</div>

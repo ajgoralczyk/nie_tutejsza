@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * direction router
+ * destination router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::direction.direction');
+module.exports = createCoreRouter('api::destination.destination');

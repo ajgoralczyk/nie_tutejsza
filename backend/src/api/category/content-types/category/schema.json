@@ -35,6 +35,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "usaCategory": {
+      "type": "string"
+    },
+    "worldCategory": {
+      "type": "string"
     }
   }
 }

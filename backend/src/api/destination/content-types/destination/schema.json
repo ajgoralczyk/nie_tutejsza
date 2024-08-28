@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "directions",
+  "collectionName": "destinations",
   "info": {
-    "singularName": "direction",
-    "pluralName": "directions",
-    "displayName": "Direction",
-    "description": ""
+    "singularName": "destination",
+    "pluralName": "destinations",
+    "displayName": "Destination"
   },
   "options": {
     "draftAndPublish": true

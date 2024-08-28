@@ -1,13 +1,9 @@
-import Image from "next/image";
-
+import LayoutWithSidePanel from "./components/LayoutWithSidePanel";
 export default function Home() {
   return (
-    <main className="">
-      <div className="">
-        <p className="">
-          Main page
-        </p>
-      </div>
-    </main>
+    <LayoutWithSidePanel
+      content={<p className="bg-black">--main page--</p>}
+      side={<div className="bg-yellow flex-grow basis-1/4">--side--</div>}
+    />
   );
 }

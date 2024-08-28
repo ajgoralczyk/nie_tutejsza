@@ -1,13 +1,14 @@
 import Author from "@/app/components/Author";
 import Header from "@/app/components/Header";
+import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
 import RichText from "@/app/components/RichText";
-import { fetchAPI } from '@/app/utils/fetch-api';
+import { fetchAPI } from "@/app/utils/fetch-api";
 
 type ArticleProps = {
   params: {
-    slug: string,
-  }
-}
+    slug: string;
+  };
+};
 
 async function fetchPost(slug: string) {
   try {
@@ -15,7 +16,7 @@ async function fetchPost(slug: string) {
     const path = `/articles`;
     const urlParamsObject = {
       filters: { slug },
-      populate: '*'
+      populate: "*",
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const responseData = await fetchAPI(path, urlParamsObject, options);
@@ -28,8 +29,8 @@ async function fetchPost(slug: string) {
 
 function renderPost(section: any, index: number) {
   switch (section.__component) {
-    case 'components.rich-text':
-      return <RichText key={index} data={section.body} />
+    case "components.rich-text":
+      return <RichText key={index} data={section.body} />;
     default:
       return null;
   }
@@ -37,15 +38,36 @@ function renderPost(section: any, index: number) {
 
 export default async function ArticleRoute({ params }: ArticleProps) {
   const { data } = await fetchPost(params.slug);
-  const { cover, title, updatedAt, publishedAt, categories, blocks, authors } = data[0].attributes;
+  const { cover, title, updatedAt, publishedAt, categories, blocks, authors } =
+    data[0].attributes;
 
   return (
-    <div>
-      {/* {JSON.stringify(data)} */}
-      <Header title={title} image={cover} categories={categories} updatedAt={updatedAt} publishedAt={publishedAt} />
-      {blocks && blocks.map((block, index) => renderPost(block, index))}
-      <Author authors={authors} />
-    </div>
+    <>
+      <LayoutWithSidePanel
+        header={
+          <Header
+            title={title}
+            image={cover}
+            categories={categories}
+            updatedAt={updatedAt}
+            publishedAt={publishedAt}
+          />
+        }
+        content={
+          <>
+            {blocks && blocks.map((block, index) => renderPost(block, index))}
+            {authors && <Author authors={authors} />}
+          </>
+        }
+        side={
+          <div>
+            <p>o mnie</p>
+            <p>instagram</p>
+            <p>najnowsze</p>
+          </div>
+        }
+      />
+    </>
   );
 }
 

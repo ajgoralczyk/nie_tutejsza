@@ -17,7 +17,7 @@ export default function ArticleListItem(props: ArticleListItemProps) {
   // TODO make it all a link
 
   return (
-    <section className="mx-auto grid items-start gap-6 p-4 lg:p-6 max-w-screen-lg">
+    <section className="grid items-start gap-6 ">
       <div className="bg-background2 border border-lightGrey flex flex-col sm:flex-row overflow-hidden rounded-xl">
         <div className="sm:w-2/5">
           {image && image.data ? (

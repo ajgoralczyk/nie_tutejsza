@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import ArticleListItem from "@/app/components/ArticleListItem";
 import Header from "@/app/components/Header";
 import Pagination from "@/app/components/Pagination";
+import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
 
 type CategoryProps = {
   params: {
@@ -73,20 +74,31 @@ export default async function CategoryRoute({ params }: CategoryProps) {
   // TODO const { name, description } = data[0]?.attributes.category.data.attributes;
 
   return (
-    <>
-      <Header title={name} description={description} image={cover} />
-      {posts?.data.map((post) => (
-        <ArticleListItem
-          href={post.attributes.slug}
-          image={post.attributes.cover}
-          title={post.attributes.title}
-          description={post.attributes.description}
-          publishedAt={post.attributes.publishedAt}
-          categories={post.attributes.categories}
-          key={post.id}
-        />
-      ))}
-      <Pagination pageCount={posts.meta.pagination.pageCount} />
-    </>
+    <LayoutWithSidePanel
+      header={<Header title={name} description={description} image={cover} />}
+      content={
+        <>
+          {posts?.data.map((post) => (
+            <ArticleListItem
+              href={post.attributes.slug}
+              image={post.attributes.cover}
+              title={post.attributes.title}
+              description={post.attributes.description}
+              publishedAt={post.attributes.publishedAt}
+              categories={post.attributes.categories}
+              key={post.id}
+            />
+          ))}
+          <Pagination pageCount={posts.meta.pagination.pageCount} />
+        </>
+      }
+      side={
+        <>
+          <p>o mnie</p>
+          <p>instagram</p>
+          <p>najnowsze</p>
+        </>
+      }
+    />
   );
 }

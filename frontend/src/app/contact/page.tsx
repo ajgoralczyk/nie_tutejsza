@@ -1,6 +1,7 @@
 import ContactWithImage, {
   ContactWithImageType,
 } from "../components/ContactWithImage";
+import Layout from "../components/Layout";
 import { fetchAPI } from "../utils/fetch-api";
 
 async function getContact(): Promise<any> {
@@ -21,13 +22,16 @@ async function getContact(): Promise<any> {
 
 export default async function Contact() {
   const data = await getContact();
-  console.log("contact page data", data);
 
   return (
-    <ContactWithImage
-      image={data?.attributes?.image}
-      description={data?.attributes?.description || ""}
-      type={ContactWithImageType.ImageLeft}
+    <Layout
+      content={
+        <ContactWithImage
+          image={data?.attributes?.image}
+          description={data?.attributes?.description || ""}
+          type={ContactWithImageType.ImageLeft}
+        />
+      }
     />
   );
 }

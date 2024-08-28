@@ -20,7 +20,7 @@ export default function TextWithImage({
 }: TextWithImageProps) {
   return (
     <section
-      className={`p-4 lg:p-6 max-w-screen-lg mx-auto flex flex-col gap-8 lg:gap-12 ${
+      className={`flex flex-col gap-8 lg:gap-12 ${
         type === TextWithImageType.ImageLeft
           ? "md:flex-row-reverse"
           : "md:flex-row"

@@ -30,26 +30,35 @@ async function fetchPosts() {
 
 export default async function BlogRoute() {
   const posts = await fetchPosts();
-  console.log("posts", posts);
 
   //TODO: CREATE A COMPONENT FOR THIS
   if (posts?.length === 0) return <div>Not Posts Yes</div>;
 
   return (
-    <>
-      {/* TODO add header with image & "Wszystkie wpisy" */}
-      {posts?.data.map((post) => (
-        <ArticleListItem
-          href={post.attributes.slug}
-          image={post.attributes.cover}
-          title={post.attributes.title}
-          description={post.attributes.description}
-          publishedAt={post.attributes.publishedAt}
-          categories={post.attributes.categories}
-          key={post.id}
-        />
-      ))}
-      <Pagination pageCount={posts.meta.pagination.pageCount} />
-    </>
+    <LayoutWithSidePanel
+      content={
+        <>
+          {/* TODO add header with image & "Wszystkie wpisy" */}
+          {posts?.data.map((post) => (
+            <ArticleListItem
+              href={post.attributes.slug}
+              image={post.attributes.cover}
+              title={post.attributes.title}
+              description={post.attributes.description}
+              publishedAt={post.attributes.publishedAt}
+              categories={post.attributes.categories}
+              key={post.id}
+            />
+          ))}
+          <Pagination pageCount={posts.meta.pagination.pageCount} />
+        </>
+      }
+      side={
+        <>
+          <p>o mnie</p>
+          <p>instagram</p>
+        </>
+      }
+    />
   );
 }

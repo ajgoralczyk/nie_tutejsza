@@ -2,14 +2,14 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 type RichTextProps = {
-  data: string,
+  data: string;
 };
 
-export default function RichText({data} : RichTextProps) {
+export default function RichText({ data }: RichTextProps) {
   console.log(data);
   // TODO add styles
   return (
-    <section className="mx-auto p-4 lg:p-6 max-w-screen-lg">
+    <section className="">
       <Markdown children={data} remarkPlugins={[remarkGfm]} />
     </section>
   );

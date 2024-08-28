@@ -928,6 +928,8 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     >;
     cover: Attribute.Media<'images'>;
     description: Attribute.Text;
+    usaCategory: Attribute.String;
+    worldCategory: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -976,13 +978,12 @@ export interface ApiContactContact extends Schema.SingleType {
   };
 }
 
-export interface ApiDirectionDirection extends Schema.SingleType {
-  collectionName: 'directions';
+export interface ApiDestinationDestination extends Schema.SingleType {
+  collectionName: 'destinations';
   info: {
-    singularName: 'direction';
-    pluralName: 'directions';
-    displayName: 'Direction';
-    description: '';
+    singularName: 'destination';
+    pluralName: 'destinations';
+    displayName: 'Destination';
   };
   options: {
     draftAndPublish: true;
@@ -993,13 +994,13 @@ export interface ApiDirectionDirection extends Schema.SingleType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::direction.direction',
+      'api::destination.destination',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::direction.direction',
+      'api::destination.destination',
       'oneToOne',
       'admin::user'
     > &
@@ -1120,7 +1121,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
-      'api::direction.direction': ApiDirectionDirection;
+      'api::destination.destination': ApiDestinationDestination;
       'api::global.global': ApiGlobalGlobal;
       'api::message-submission.message-submission': ApiMessageSubmissionMessageSubmission;
       'api::page.page': ApiPagePage;
