@@ -1,4 +1,4 @@
-import AboutMeCard from "@/app/components/AboutMeCard";
+import AboutMeCard from "@/app/components/sideCards/AboutMeCard";
 import Author from "@/app/components/Author";
 import Header from "@/app/components/Header";
 import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";

@@ -1,4 +1,4 @@
-import AboutMeCard from "./components/AboutMeCard";
+import AboutMeCard from "./components/sideCards/AboutMeCard";
 import LayoutWithSidePanel from "./components/LayoutWithSidePanel";
 export default function Home() {
   return (

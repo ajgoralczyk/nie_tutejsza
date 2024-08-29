@@ -2,7 +2,7 @@
 import { fetchAPI } from "../utils/fetch-api";
 import { Map, MapTypes } from "../components/map/Map";
 import LayoutWithSidePanel from "../components/LayoutWithSidePanel";
-import AboutMeCard from "../components/AboutMeCard";
+import AboutMeCard from "../components/sideCards/AboutMeCard";
 
 async function fetchCategories() {
   try {

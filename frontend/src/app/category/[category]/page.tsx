@@ -6,7 +6,7 @@ import ArticleListItem from "@/app/components/ArticleListItem";
 import Header from "@/app/components/Header";
 import Pagination from "@/app/components/Pagination";
 import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
-import AboutMeCard from "@/app/components/AboutMeCard";
+import AboutMeCard from "@/app/components/sideCards/AboutMeCard";
 
 type CategoryProps = {
   params: {

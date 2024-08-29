@@ -4,7 +4,7 @@ import { fetchAPI } from "@/app/utils/fetch-api";
 import { useSearchParams } from "next/navigation";
 import ArticleListItem from "../components/ArticleListItem";
 import Pagination from "../components/Pagination";
-import AboutMeCard from "../components/AboutMeCard";
+import AboutMeCard from "../components/sideCards/AboutMeCard";
 
 async function fetchPosts() {
   try {

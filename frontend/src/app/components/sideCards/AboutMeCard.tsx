@@ -1,6 +1,5 @@
-import { describe } from "node:test";
-import { fetchAPI } from "../utils/fetch-api";
-import Image from "./Image";
+import { fetchAPI } from "../../utils/fetch-api";
+import Image from "../Image";
 import Link from "next/link";
 
 async function getGlobal(): Promise<any> {
