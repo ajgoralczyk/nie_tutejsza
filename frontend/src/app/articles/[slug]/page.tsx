@@ -1,3 +1,4 @@
+import AboutMeCard from "@/app/components/AboutMeCard";
 import Author from "@/app/components/Author";
 import Header from "@/app/components/Header";
 import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
@@ -61,7 +62,7 @@ export default async function ArticleRoute({ params }: ArticleProps) {
         }
         side={
           <div>
-            <p>o mnie</p>
+            <AboutMeCard />
             <p>instagram</p>
             <p>najnowsze</p>
           </div>

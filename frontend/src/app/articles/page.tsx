@@ -4,6 +4,7 @@ import { fetchAPI } from "@/app/utils/fetch-api";
 import { useSearchParams } from "next/navigation";
 import ArticleListItem from "../components/ArticleListItem";
 import Pagination from "../components/Pagination";
+import AboutMeCard from "../components/AboutMeCard";
 
 async function fetchPosts() {
   try {
@@ -55,7 +56,7 @@ export default async function BlogRoute() {
       }
       side={
         <>
-          <p>o mnie</p>
+          <AboutMeCard />
           <p>instagram</p>
         </>
       }

@@ -6,6 +6,7 @@ import ArticleListItem from "@/app/components/ArticleListItem";
 import Header from "@/app/components/Header";
 import Pagination from "@/app/components/Pagination";
 import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
+import AboutMeCard from "@/app/components/AboutMeCard";
 
 type CategoryProps = {
   params: {
@@ -94,7 +95,7 @@ export default async function CategoryRoute({ params }: CategoryProps) {
       }
       side={
         <>
-          <p>o mnie</p>
+          <AboutMeCard />
           <p>instagram</p>
           <p>najnowsze</p>
         </>

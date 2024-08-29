@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_about_mes",
+  "info": {
+    "displayName": "aboutMe"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

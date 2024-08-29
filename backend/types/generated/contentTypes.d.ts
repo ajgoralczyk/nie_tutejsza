@@ -794,12 +794,13 @@ export interface ApiAboutAbout extends Schema.SingleType {
     singularName: 'about';
     pluralName: 'abouts';
     displayName: 'About';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    content: Attribute.Component<'components.text-with-image'>;
+    content: Attribute.Component<'components.text-with-image', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1024,6 +1025,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     metadata: Attribute.Component<'meta.meta'>;
     navbar: Attribute.Component<'layout.navbar'>;
     footer: Attribute.Component<'layout.footer'>;
+    aboutMe: Attribute.Component<'layout.about-me'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

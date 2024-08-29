@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about",
     "pluralName": "abouts",
-    "displayName": "About"
+    "displayName": "About",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -13,7 +14,7 @@
   "attributes": {
     "content": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "components.text-with-image"
     }
   }

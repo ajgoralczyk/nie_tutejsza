@@ -2,6 +2,7 @@
 import { fetchAPI } from "../utils/fetch-api";
 import { Map, MapTypes } from "../components/map/Map";
 import LayoutWithSidePanel from "../components/LayoutWithSidePanel";
+import AboutMeCard from "../components/AboutMeCard";
 
 async function fetchCategories() {
   try {
@@ -96,7 +97,7 @@ export default async function Destinations() {
       }
       side={
         <>
-          <p>o mnie</p>
+          <AboutMeCard />
           <p>instagram</p>
           <p>najnowsze</p>
         </>

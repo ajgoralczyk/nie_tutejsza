@@ -66,6 +66,17 @@ export interface ComponentsTextWithImage extends Schema.Component {
   };
 }
 
+export interface LayoutAboutMe extends Schema.Component {
+  collectionName: 'components_layout_about_mes';
+  info: {
+    displayName: 'aboutMe';
+  };
+  attributes: {
+    description: Attribute.Text;
+    image: Attribute.Media<'images'>;
+  };
+}
+
 export interface LayoutFooter extends Schema.Component {
   collectionName: 'components_layout_footers';
   info: {
@@ -114,6 +125,7 @@ declare module '@strapi/types' {
       'components.quote': ComponentsQuote;
       'components.rich-text': ComponentsRichText;
       'components.text-with-image': ComponentsTextWithImage;
+      'layout.about-me': LayoutAboutMe;
       'layout.footer': LayoutFooter;
       'layout.navbar': LayoutNavbar;
       'meta.meta': MetaMeta;
