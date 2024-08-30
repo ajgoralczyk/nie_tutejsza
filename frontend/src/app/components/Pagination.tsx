@@ -35,7 +35,7 @@ function PaginationButton(props: PaginationButtonProps) {
 }
 
 export default function Pagination(props: PaginationProps) {
-  if (props.pageCount === 1) {
+  if (props.pageCount < 2) {
     return null;
   }
 
