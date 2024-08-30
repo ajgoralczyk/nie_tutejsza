@@ -848,10 +848,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
-    blocks: Attribute.DynamicZone<
-      ['components.rich-text', 'components.quote', 'components.carousel']
-    > &
-      Attribute.Required;
+    text: Attribute.Component<'components.rich-text'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

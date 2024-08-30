@@ -45,14 +45,10 @@
       "target": "api::category.category",
       "mappedBy": "articles"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "components.rich-text",
-        "components.quote",
-        "components.carousel"
-      ],
-      "required": true
+    "text": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.rich-text"
     }
   }
 }

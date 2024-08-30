@@ -1,15 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface ComponentsCarousel extends Schema.Component {
-  collectionName: 'components_components_carousels';
-  info: {
-    displayName: 'Carousel';
-  };
-  attributes: {
-    files: Attribute.Media<'images', true>;
-  };
-}
-
 export interface ComponentsIconLink extends Schema.Component {
   collectionName: 'components_components_icon_links';
   info: {
@@ -119,7 +109,6 @@ export interface MetaMeta extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'components.carousel': ComponentsCarousel;
       'components.icon-link': ComponentsIconLink;
       'components.link': ComponentsLink;
       'components.quote': ComponentsQuote;

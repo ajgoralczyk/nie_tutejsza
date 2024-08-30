@@ -1,9 +1,14 @@
 import AboutMeCard from "./components/sideCards/AboutMeCard";
 import LayoutWithSidePanel from "./components/LayoutWithSidePanel";
+import ArticleList from "./components/ArticleList";
 export default function Home() {
   return (
     <LayoutWithSidePanel
-      content={<p className="bg-black">--main page--</p>}
+      content={
+        <>
+          <ArticleList withPagination={false} />
+        </>
+      }
       side={
         <>
           <AboutMeCard />
