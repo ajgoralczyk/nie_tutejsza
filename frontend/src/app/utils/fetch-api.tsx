@@ -16,11 +16,16 @@ export async function fetchAPI(
       ...options,
     };
     const defaultPagination = {
-      'pagination[pageSize]': 10,
+      pagination: { pageSize: 10 },
     };
 
+    console.log("HERE", defaultPagination, urlParamsObject, mergedOptions);
+
     // Build request URL
-    const queryString = qs.stringify({...defaultPagination, ...urlParamsObject});
+    const queryString = qs.stringify({
+      ...defaultPagination,
+      ...urlParamsObject,
+    });
     const requestUrl = `${getStrapiURL(
       `/api${path}${queryString ? `?${queryString}` : ""}`
     )}`;
@@ -29,9 +34,10 @@ export async function fetchAPI(
     const response = await fetch(requestUrl, mergedOptions);
     const data = await response.json();
     return data;
-    
   } catch (error) {
     console.error(error);
-    throw new Error(`Please check if your server is running and you set all the required tokens.`);
+    throw new Error(
+      `Please check if your server is running and you set all the required tokens.`
+    );
   }
 }

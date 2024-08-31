@@ -1,7 +1,5 @@
 import { useSearchParams } from "next/navigation";
 import { fetchAPI } from "../../utils/fetch-api";
-import Image from "../Image";
-import Link from "next/link";
 
 async function fetchPosts() {
   try {

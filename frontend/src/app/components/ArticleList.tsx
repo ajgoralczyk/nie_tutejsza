@@ -9,16 +9,25 @@ import Link from "next/link";
 type ArticleListProps = {
   category?: string;
   withPagination?: boolean;
+  pageSize?: number;
+  isSideComponent?: boolean;
+  skipElement?: number; // ID
 };
 
 type fetchPostsProps = {
   category?: string;
   search?: string;
   page?: number;
+  pageSize: number;
 };
 
 // TODO split fetching and state management into separate components?
-async function fetchPosts({ category, search, page = 1 }: fetchPostsProps) {
+async function fetchPosts({
+  category,
+  search,
+  pageSize,
+  page = 1,
+}: fetchPostsProps) {
   try {
     const filters = {};
     if (category) {
@@ -56,6 +65,7 @@ async function fetchPosts({ category, search, page = 1 }: fetchPostsProps) {
       populate: "*",
       pagination: {
         page: page,
+        pageSize: pageSize,
       },
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
@@ -70,20 +80,23 @@ async function fetchPosts({ category, search, page = 1 }: fetchPostsProps) {
 export default async function ArticleList({
   category,
   withPagination = true,
+  pageSize = 10,
+  isSideComponent = false,
+  skipElement,
 }: ArticleListProps) {
   const searchParams = useSearchParams();
   const page = Number(searchParams.get("page")) || undefined;
   const search = searchParams.get("search") || undefined;
 
-  const posts = await fetchPosts({ category, search, page });
-  const pageCount = posts.meta.pagination.pageCount;
+  const posts = await fetchPosts({ category, search, pageSize, page });
+  const pageCount = posts?.meta?.pagination?.pageCount;
 
   // TODO add --no articles version--
 
   // TODO recheck order (are really newest at the beginning?)
   return (
     <>
-      {posts?.data.map((post) => (
+      {posts?.data?.map((post) => (
         <ArticleListItem
           href={post.attributes.slug}
           image={post.attributes.cover}
@@ -92,6 +105,7 @@ export default async function ArticleList({
           publishedAt={post.attributes.publishedAt}
           categories={post.attributes.categories}
           key={post.id}
+          isSideComponent={isSideComponent}
         />
       ))}
       {withPagination && <Pagination pageCount={pageCount} />}

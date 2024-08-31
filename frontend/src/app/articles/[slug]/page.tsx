@@ -28,18 +28,9 @@ async function fetchPost(slug: string) {
   }
 }
 
-function renderPost(section: any, index: number) {
-  switch (section.__component) {
-    case "components.rich-text":
-      return <RichText key={index} data={section.body} />;
-    default:
-      return null;
-  }
-}
-
 export default async function ArticleRoute({ params }: ArticleProps) {
   const { data } = await fetchPost(params.slug);
-  const { cover, title, updatedAt, publishedAt, categories, blocks, authors } =
+  const { cover, title, updatedAt, publishedAt, categories, text, authors } =
     data[0].attributes;
 
   return (
@@ -55,10 +46,10 @@ export default async function ArticleRoute({ params }: ArticleProps) {
           />
         }
         content={
-          <>
-            {blocks && blocks.map((block, index) => renderPost(block, index))}
+          <section>
+            <RichText data={text.body} />
             {authors && <Author authors={authors} />}
-          </>
+          </section>
         }
         side={
           <div>

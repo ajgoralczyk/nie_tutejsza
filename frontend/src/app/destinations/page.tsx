@@ -3,6 +3,7 @@ import { fetchAPI } from "../utils/fetch-api";
 import { Map, MapTypes } from "../components/map/Map";
 import LayoutWithSidePanel from "../components/LayoutWithSidePanel";
 import AboutMeCard from "../components/sideCards/AboutMeCard";
+import ArticleList from "../components/ArticleList";
 
 async function fetchCategories() {
   try {
@@ -99,7 +100,12 @@ export default async function Destinations() {
         <>
           <AboutMeCard />
           <p>instagram</p>
-          <p>najnowsze</p>
+          <h4 className="">Najnowsze</h4>
+          <ArticleList
+            pageSize={3}
+            isSideComponent={true}
+            withPagination={false}
+          />
         </>
       }
     />
