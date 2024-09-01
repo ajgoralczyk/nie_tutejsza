@@ -48,11 +48,12 @@ export interface ComponentsTextWithImage extends Schema.Component {
   collectionName: 'components_components_text_with_images';
   info: {
     displayName: 'TextWithImage';
+    description: '';
   };
   attributes: {
     text: Attribute.RichText;
-    image: Attribute.Media<'images'>;
     type: Attribute.Enumeration<['ImageLeft', 'ImageRight']>;
+    image: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 

@@ -6,7 +6,7 @@ type RichTextProps = {
 };
 
 export default function RichText({ data }: RichTextProps) {
-  console.log(data);
+  // console.log(data);
   // TODO add styles
   return (
     <section className="">

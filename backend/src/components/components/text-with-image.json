@@ -1,19 +1,13 @@
 {
   "collectionName": "components_components_text_with_images",
   "info": {
-    "displayName": "TextWithImage"
+    "displayName": "TextWithImage",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "text": {
       "type": "richtext"
-    },
-    "image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
     },
     "type": {
       "type": "enumeration",
@@ -21,6 +15,14 @@
         "ImageLeft",
         "ImageRight"
       ]
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

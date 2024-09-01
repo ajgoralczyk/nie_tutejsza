@@ -19,8 +19,6 @@ export async function fetchAPI(
       pagination: { pageSize: 10 },
     };
 
-    console.log("HERE", defaultPagination, urlParamsObject, mergedOptions);
-
     // Build request URL
     const queryString = qs.stringify({
       ...defaultPagination,

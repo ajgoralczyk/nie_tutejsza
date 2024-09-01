@@ -11,7 +11,7 @@ type ArticleListProps = {
   withPagination?: boolean;
   pageSize?: number;
   isSideComponent?: boolean;
-  skipElement?: number; // ID
+  skipElement?: string; // ID
 };
 
 type fetchPostsProps = {

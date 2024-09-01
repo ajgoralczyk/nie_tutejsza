@@ -52,7 +52,12 @@ export default async function CategoryRoute({ params }: CategoryProps) {
         <>
           <AboutMeCard />
           <p>instagram</p>
-          <p>najnowsze</p>
+          <h4 className="">Najnowsze</h4>
+          <ArticleList
+            pageSize={3}
+            isSideComponent={true}
+            withPagination={false}
+          />
         </>
       }
     />

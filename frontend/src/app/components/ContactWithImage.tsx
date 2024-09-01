@@ -17,8 +17,6 @@ export default function ContactWithImage({
   description,
   type,
 }: ContactWithImageProps) {
-  console.log("image", image);
-
   return (
     <section
       className={`flex flex-col gap-8 lg:gap-12 ${

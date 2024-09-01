@@ -18,7 +18,9 @@ type ImageProps = {
 };
 
 export default function Image(props: ImageProps) {
-  console.log("Image", props.file);
+  if (props.file == undefined) {
+    return null;
+  }
   const imgUrl = getStrapiMedia(props.file.data.attributes.url);
 
   return (

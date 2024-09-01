@@ -40,16 +40,6 @@ async function getDestinations(): Promise<any> {
 export default async function Destinations() {
   const categories = await fetchCategories();
   const destinations = await getDestinations();
-  console.log("A", destinations);
-
-  console.log("categories", categories);
-  categories.forEach((category) => {
-    console.log(
-      category,
-      category?.attributes?.worldCategory,
-      category?.attributes?.articles?.data?.length
-    );
-  });
 
   const availableWorldCategories = categories.filter(
     (category) =>

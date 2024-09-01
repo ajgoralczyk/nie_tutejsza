@@ -48,7 +48,6 @@ export default function Contact({ description }: ContactProps) {
   }
 
   function handleInputChange(inputType: InputType, value: string) {
-    console.log("handleInputChange", inputType, value);
     switch (inputType) {
       case InputType.Name:
         setName(value);

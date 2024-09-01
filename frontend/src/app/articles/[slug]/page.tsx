@@ -4,6 +4,7 @@ import Header from "@/app/components/Header";
 import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
 import RichText from "@/app/components/RichText";
 import { fetchAPI } from "@/app/utils/fetch-api";
+import ArticleList from "@/app/components/ArticleList";
 
 type ArticleProps = {
   params: {
@@ -55,7 +56,13 @@ export default async function ArticleRoute({ params }: ArticleProps) {
           <div>
             <AboutMeCard />
             <p>instagram</p>
-            <p>najnowsze</p>
+            <h4 className="">Najnowsze</h4>
+            <ArticleList
+              pageSize={3}
+              isSideComponent={true}
+              withPagination={false}
+              skipElement=""
+            />
           </div>
         }
       />
