@@ -21,10 +21,10 @@ export default function ArticleListItem(props: ArticleListItemProps) {
     <section className="grid items-start gap-6">
       <div
         className={`bg-background2 border border-lightGrey flex flex-col sm:flex-row overflow-hidden rounded-xl ${
-          isSideComponent ? "lg:flex-col" : ""
+          isSideComponent ? "xl:flex-col" : ""
         }`}
       >
-        <div className={`sm:w-2/5 ${isSideComponent ? "lg:w-full" : ""}`}>
+        <div className={`sm:w-2/5 ${isSideComponent ? "xl:w-full" : ""}`}>
           {image && image.data ? (
             <Image file={image} className="aspect-[3/2] object-cover" />
           ) : null}
@@ -32,12 +32,12 @@ export default function ArticleListItem(props: ArticleListItemProps) {
         </div>
         <div
           className={`sm:w-3/5 flex flex-col ${
-            isSideComponent ? "lg:w-full" : ""
+            isSideComponent ? "xl:w-full" : ""
           }`}
         >
           <div
-            className={`text-xs flex flex-none gap-3 px-6 lg:px-8 pt-6 lg:pt-8 pb-2 ${
-              isSideComponent ? "lg:px-4 lg:pt-4" : ""
+            className={`text-xs flex flex-none gap-3 px-6 xl:px-8 pt-6 xl:pt-8 pb-2 ${
+              isSideComponent ? "xl:px-4 xl:pt-4" : ""
             }`}
           >
             {props.categories.data.map((category) => (
@@ -51,8 +51,8 @@ export default function ArticleListItem(props: ArticleListItemProps) {
             ))}
           </div>
           <Link
-            className={`group flex-auto px-6 lg:px-8 pb-6 lg:pb-8 pt-0 ${
-              isSideComponent ? "lg:px-4 lg:pb-4" : ""
+            className={`group flex-auto px-6 xl:px-8 pb-6 xl:pb-8 pt-0 ${
+              isSideComponent ? "xl:px-4 xl:pb-4" : ""
             }`}
             url={`/articles/${href}`}
           >

@@ -27,12 +27,12 @@ export default async function AboutMeCard() {
   const { aboutMe } = global?.data?.attributes;
 
   return (
-    <div className="flex lg:flex-col gap-6 lg:gap-6 items-center">
+    <div className="flex xl:flex-col gap-6 xl:gap-6 items-center">
       <Image file={aboutMe.image} className="rounded-full overflow-hidden" />
-      <div className="flex flex-col gap-4 lg:gap-6 items-center">
+      <div className="flex flex-col gap-4 xl:gap-6 items-center">
         <div>
-          <h4 className="lg:text-center">o mnie</h4>
-          <p className="text-sm lg:text-center">{aboutMe.description}</p>
+          <h4 className="xl:text-center">o mnie</h4>
+          <p className="text-sm xl:text-center">{aboutMe.description}</p>
         </div>
         <Link href="/about">
           <button className="bg-black text-background rounded-xl px-6 py-2">

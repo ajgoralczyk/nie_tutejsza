@@ -59,7 +59,7 @@ export default async function Destinations() {
           <h3>Podróże</h3>
           <p>{destinations?.data?.attributes?.description}</p>
           <p>Stany, o których mam coś do powiedzienia</p>
-          <div className="px-4 lg:px-6">
+          <div className="px-4 xl:px-6">
             <Map
               onSelect={(value) => {
                 console.log("clicked", value);
@@ -72,7 +72,7 @@ export default async function Destinations() {
             />
           </div>
           <p>I kraje</p>
-          <div className="px-4 lg:px-6">
+          <div className="px-4 xl:px-6">
             <Map
               onSelect={(value) => {
                 console.log("clicked", value);

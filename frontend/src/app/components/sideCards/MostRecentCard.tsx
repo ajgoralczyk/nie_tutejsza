@@ -27,5 +27,5 @@ async function fetchPosts() {
 export default async function MostRecentCard() {
   const global = await fetchPosts();
 
-  return <div className="flex flex-col gap-4 lg:gap-6 items-center"></div>;
+  return <div className="flex flex-col gap-4 xl:gap-6 items-center"></div>;
 }

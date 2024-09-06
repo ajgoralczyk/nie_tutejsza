@@ -51,7 +51,7 @@ export default function Pagination(props: PaginationProps) {
   };
 
   return (
-    <div className="pb-4 lg:pb-6 flex gap-2 justify-center">
+    <div className="pb-4 xl:pb-6 flex gap-2 justify-center">
       <PaginationButton
         url={createPageURL(currentPage - 1)}
         isDisabled={currentPage === 1}

@@ -25,7 +25,6 @@ async function getAbout(): Promise<any> {
 export default async function About() {
   const pageData = await getAbout();
   const { content } = pageData?.attributes;
-  console.log("TUTAJ JEST PROBLEM", content);
 
   return (
     <Layout

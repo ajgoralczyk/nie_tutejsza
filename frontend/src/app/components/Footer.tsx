@@ -18,8 +18,8 @@ export default function Footer(props: FooterProps) {
   const { title, description, iconLinks, linksTitle, links } = props;
 
   return (
-    <footer className="bg-background py-4 lg:px-6 text-primary sticky right-0 bottom-0 left-0 w-full box-border">
-      <div className="container mx-auto grid gap-4 sm:gap-8 sm:grid-cols-2 px-4 pb-4 lg:px-6 lg:pb-6 max-w-screen-lg">
+    <footer className="bg-background py-4 xl:px-6 text-primary sticky right-0 bottom-0 left-0 w-full box-border">
+      <div className="container mx-auto grid gap-4 sm:gap-8 sm:grid-cols-2 px-4 pb-4 xl:px-6 xl:pb-6 max-w-screen-xl">
         <div className="flex flex-col items-start gap-4">
           <Link url="/" className="text-sm hover:text-foreground">
             <h3 className="text-lg font-semibold">{title}</h3>
@@ -45,7 +45,7 @@ export default function Footer(props: FooterProps) {
         </div>
       </div>
 
-      <div className="border-t pt-4 lg:pt-6 text-center text-sm border-border">
+      <div className="border-t pt-4 xl:pt-6 text-center text-sm border-border">
         &copy; 2024 Ag. All rights reserved.
       </div>
     </footer>

@@ -14,11 +14,11 @@ export default async function LayoutWithSidePanel({
   return (
     <>
       {header}
-      <div className="px-4 lg:px-6 py-6 lg:py-10 max-w-screen-lg mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10">
-        <main className="flex-grow basis-3/4 flex flex-col gap-4 lg:gap-6">
+      <div className="px-4 xl:px-6 py-6 xl:py-10 max-w-screen-xl mx-auto flex flex-col xl:flex-row gap-6 xl:gap-10">
+        <main className="flex-grow basis-3/4 flex flex-col gap-4 xl:gap-6">
           {content}
         </main>
-        <div className="flex-grow basis-1/4 flex flex-col gap-4 lg:gap-6">
+        <div className="flex-grow basis-1/4 flex flex-col gap-4 xl:gap-6">
           {side}
         </div>
       </div>

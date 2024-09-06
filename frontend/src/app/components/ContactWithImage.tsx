@@ -19,7 +19,7 @@ export default function ContactWithImage({
 }: ContactWithImageProps) {
   return (
     <section
-      className={`flex flex-col gap-8 lg:gap-12 ${
+      className={`flex flex-col gap-8 xl:gap-12 ${
         type === ContactWithImageType.ImageLeft
           ? "md:flex-row-reverse"
           : "md:flex-row"
