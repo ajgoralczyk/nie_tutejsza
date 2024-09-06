@@ -12,7 +12,7 @@ export default function Home() {
       side={
         <>
           <AboutMeCard />
-          <p>instagram</p>
+          {/* <p>instagram</p> */}
         </>
       }
     />

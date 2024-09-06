@@ -14,7 +14,7 @@ export default async function BlogRoute() {
       side={
         <>
           <AboutMeCard />
-          <p>instagram</p>
+          {/* <p>instagram</p> */}
         </>
       }
     />

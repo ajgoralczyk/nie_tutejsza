@@ -55,7 +55,7 @@ export default async function ArticleRoute({ params }: ArticleProps) {
         side={
           <div>
             <AboutMeCard />
-            <p>instagram</p>
+            {/* <p>instagram</p> */}
             <h4 className="">Najnowsze</h4>
             <ArticleList
               pageSize={3}
