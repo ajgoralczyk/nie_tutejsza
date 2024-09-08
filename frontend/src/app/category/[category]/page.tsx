@@ -6,6 +6,7 @@ import Header from "@/app/components/Header";
 import LayoutWithSidePanel from "@/app/components/LayoutWithSidePanel";
 import AboutMeCard from "@/app/components/sideCards/AboutMeCard";
 import ArticleList from "@/app/components/ArticleList";
+import InstagramEmbedded from "@/app/components/InstagramEmbedded";
 
 type CategoryProps = {
   params: {
@@ -52,6 +53,7 @@ export default async function CategoryRoute({ params }: CategoryProps) {
         <>
           <AboutMeCard />
           {/* <p>instagram</p> */}
+          <InstagramEmbedded />
           <h4 className="">Najnowsze</h4>
           <ArticleList
             pageSize={3}
