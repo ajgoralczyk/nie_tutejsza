@@ -18,7 +18,7 @@ export default async function LayoutWithSidePanel({
         <main className="flex-grow basis-3/4 flex flex-col gap-4 xl:gap-6">
           {content}
         </main>
-        <div className="flex-grow basis-1/4 flex flex-col gap-4 xl:gap-6">
+        <div className="flex-grow basis-1/4 flex flex-col gap-4 xl:gap-6 items-center">
           {side}
         </div>
       </div>

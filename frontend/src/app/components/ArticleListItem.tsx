@@ -18,7 +18,7 @@ export default function ArticleListItem(props: ArticleListItemProps) {
   // TODO make it all a link
 
   return (
-    <section className="grid items-start gap-6">
+    <section className="grid items-start gap-6 w-full">
       <div
         className={`bg-background2 border border-lightGrey flex flex-col sm:flex-row overflow-hidden rounded-xl ${
           isSideComponent ? "xl:flex-col" : ""

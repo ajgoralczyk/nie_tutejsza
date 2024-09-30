@@ -93,6 +93,8 @@ export default async function ArticleList({
 
   // TODO add --no articles version--
 
+  // TODO add skip item
+
   // TODO recheck order (are really newest at the beginning?)
   return (
     <>
